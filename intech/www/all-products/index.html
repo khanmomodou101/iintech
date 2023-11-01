@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>INTECH24</title>
+    <!-- MDB icon -->
+    <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <!-- Google Fonts Roboto -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+    />
+    <!-- MDB -->
+    <link rel="stylesheet" href="assets/intech/css/mdb.min.css" />
+    <link
+href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.css"
+rel="stylesheet"
+/>
+
+
+
+  </head>
+  <body class="" style="background-color: #FAFAFB;">
+    <!--Main Navigation-->
+    {% include "templates/includes/navbar/topbar.html" %}
+
+  <header class="sticky-top">
+   
+        {% include "templates/includes/navbar/navbar.html" %}
+    
+  </header>
+
+   
+
+
+<header>
+    <!-- Intro settings -->
+    <style>
+      /* Default height for small devices */
+      #intro-example {
+        height: 400px;
+      }
+  
+      /* Height for devices larger than 992px */
+      @media (min-width: 992px) {
+        #intro-example {
+          height: 600px;
+        }
+      }
+    </style>
+  
+  
+    <section>
+        <div class=" py-2 container">
+          <div class=" p-5 card" style="background-color: #0A077A;">
+            <div class="row align-items-center ">
+              <div class="col">
+                <h4 class="mb-0 display-4 fw-bold text-white" style="color: #D14A0A;">Best products and brands in store</h4>
+                <p class="mb-0 text-white lead pt-4 fs-4">Our range of products spans across industrial electrical automation and factory-related solutions, designed to enhance your operational efficiency and productivity.</p>
+              </div>
+              <div class="col-auto">
+                <button
+                type="button"
+                class="btn btn-primary btn-lg text-dark"
+                style="background-color: #ffffff;"
+                data-mdb-toggle="modal"
+                data-mdb-target="#rfqModal"
+                data-mdb-whatever="@mdo"
+              >
+                Let's Talk
+              </button>
+            </div>
+             
+            <div class="modal fade" id="rfqModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Request For Quotatio</h5>
+                    <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <form>
+                      <!-- Name input -->
+                      <div class="form-outline mb-4">
+                        <input type="text" id="form4Example1" class="form-control" />
+                        <label class="form-label" for="form4Example1">Name</label>
+                      </div>
+                    
+                      <!-- Email input -->
+                      <div class="form-outline mb-4">
+                        <input type="email" id="form4Example2" class="form-control" />
+                        <label class="form-label" for="form4Example2">Email address</label>
+                      </div>
+                    
+                      <!-- Message input -->
+                      <div class="form-outline mb-4">
+                        <textarea class="form-control" id="form4Example3" rows="4"></textarea>
+                        <label class="form-label" for="form4Example3">Message</label>
+                      </div>
+                    
+                      <!-- Checkbox -->
+                      <div class="form-check d-flex justify-content-center mb-4">
+                        <input class="form-check-input me-2" type="checkbox" value="" id="form4Example4" checked />
+                        <label class="form-check-label" for="form4Example4">
+                          Send me a copy of this message
+                        </label>
+                      </div>
+                    
+                      <!-- Submit button -->
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Send message</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Features -->
+  </header>
+
+
+  
+  <div class="container mt-6">
+    <div class="row mt-5">
+        {% set groups = frappe.get_all('Item Group', fields=['item_group_name']) %}
+        {% for group in groups %}
+            {% set items = frappe.get_all('Website Item', filters={'item_group': group.item_group_name}, fields=['web_item_name', 'website_image', 'short_description']) %}
+            {% if items %}
+                <h4 class="mt-5 title fs-4 fw-bold mb-3 text-dark">{{ group.item_group_name }}</h4>
+                <div class="row g-0 justify-content-between">
+                    {% for item in items %}
+                        <div class="card mb-3" style="max-width: 640px;">
+                            <div class="row g-0 justify-content-between">
+                                <div class="col-md-4 h-100">
+                                    <img
+                                        src="{{ item.website_image }}"
+                                        alt="{{ item.web_item_name }}"
+                                        class="img-fluid rounded-start"
+                                    />
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title title fs-5 fw-bold mb-3 text-dark">{{ item.web_item_name }}</h5>
+                                        <p class="card-text ">
+                                           {{ item.short_description }}
+                                        </p>
+                                        <h6 class="card-text">
+                                            {{ group.item_group_name }}
+                                        </h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+    
+
+    
+  </div>
+  {% include "templates/includes/footer/footer.html" %}
+
+
+
+  <script type="text/javascript" src="assets/intech/js/mdb.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.js"
+    ></script>
+    <!-- Custom scripts -->
+    <script type="text/javascript"></script>
+    </body>
+
+    </html>

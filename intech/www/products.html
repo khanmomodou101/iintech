@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>INTECH24</title>
+    <!-- MDB icon -->
+    <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <!-- Google Fonts Roboto -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+    />
+    <!-- MDB -->
+    <link rel="stylesheet" href="assets/intech/css/mdb.min.css" />
+    <link
+href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.css"
+rel="stylesheet"
+/>
+
+
+
+  </head>
+  <body>
+    <!--Main Navigation-->
+  <header>
+   
+        {% include "templates/includes/navbar/navbar.html" %}
+    
+  </header>
+
+   
+
+
+<header>
+    <!-- Intro settings -->
+    <style>
+      /* Default height for small devices */
+      #intro-example {
+        height: 400px;
+      }
+  
+      /* Height for devices larger than 992px */
+      @media (min-width: 992px) {
+        #intro-example {
+          height: 600px;
+        }
+      }
+    </style>
+  
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+      <div class="container-fluid">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-mdb-toggle="collapse"
+          data-mdb-target="#navbarExample01"
+          aria-controls="navbarExample01"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <i class="fas fa-bars"></i>
+        </button>
+       
+      </div>
+    </nav>
+    <!-- Navbar -->
+    <section>
+        <div class="container mt-5">
+          <div class="card p-4 bg-primary">
+            <div class="row align-items-center">
+              <div class="col">
+                <h4 class="mb-0 text-white">Best products and brands in store</h4>
+                <p class="mb-0 text-white lead pt-4">Our range of products spans across industrial electrical automation and factory-related solutions, designed <br> to enhance your operational efficiency and productivity.</p>
+              </div>
+              <div class="col-auto"><a class="btn btn-white text-primary shadow-0 display-3" href="#">Lets Talk</a></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Features -->
+  </header>
+
+
+  
+  <div class="container mt-6">
+    <div class="row mt-5">
+        {% set groups = frappe.get_all('Item Group', fields=['item_group_name']) %}
+        {% for group in groups %}
+            {% set items = frappe.get_all('Website Item', filters={'item_group': group.item_group_name}, fields=['web_item_name', 'website_image', 'short_description']) %}
+            {% if items %}
+                <h4 class="mt-5">{{ group.item_group_name }}</h4>
+                <div class="row g-0 justify-content-between">
+                    {% for item in items %}
+                        <div class="card mb-3" style="max-width: 640px;">
+                            <div class="row g-0 justify-content-between">
+                                <div class="col-md-4 h-100">
+                                    <img
+                                        src="{{ item.website_image }}"
+                                        alt="{{ item.web_item_name }}"
+                                        class="img-fluid rounded-start"
+                                    />
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ item.web_item_name }}</h5>
+                                        <p class="card-text">
+                                           {{ item.short_description }}
+                                        </p>
+                                        <h6 class="card-text">
+                                            {{ group.item_group_name }}
+                                        </h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+    
+
+    
+  </div>
+  {% include "templates/includes/footer/footer.html" %}
+
+
+
+  <script type="text/javascript" src="assets/intech/js/mdb.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.js"
+    ></script>
+    <!-- Custom scripts -->
+    <script type="text/javascript"></script>
+    </body>
+    
+
+    </html>

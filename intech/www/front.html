@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>INTECH24</title>
+    <!-- MDB icon -->
+    <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <!-- Google Fonts Roboto -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+    />
+    <!-- MDB -->
+    <link rel="stylesheet" href="assets/intech/css/mdb.min.css" />
+    <link
+href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.css"
+rel="stylesheet"
+/>
+
+
+
+  </head>
+  <body style="background-color: #FAFAFB;">
+
+    <!--Main Navigation-->
+    {% include "templates/includes/navbar/topbar.html" %}
+  <header class="bg-secondary bg-opacity-10 sticky-top">
+   
+        {% include "templates/includes/navbar/navbar.html" %}
+    
+  </header>
+
+   
+    <!-- Navbar -->
+    <!-- Jumbotron -->
+
+    <!-- intro -->
+
+  
+    <section class="py-lg-16 py-6 mt-5 pb-4" >
+      {% include "templates/includes/components/hero.html" %}
+    </section>
+    <!-- Jumbotron -->
+  </header>
+  <!-- Products -->
+  <section>
+    <div class="container my-5 mt-6">
+      <header class="mb-4">
+        <h3  class="display-5 fw-bold mb-3 text-dark">OUR PRODUCTS</h3>
+      </header>
+
+      <div class="row  row-cols-lg-4 d-flex mx-1 px-5 ">
+        {% set items = frappe.get_all('Website Item',  fields=['item_name', 'website_image','web_item_name', 'route']) %}
+      {% for item in items %}
+        <div class="col py-2 ">
+          <div class="card h-100 bg-image hover-overlay hover-zoom hover-shadow bg-secondary bg-opacity-10 ">
+            
+            <img src="{{ item.website_image}}" class="card-img-top border  rounded " style="border-color: #0A077A;"/>
+            <div class="card-body">
+              <h6 class="card-title  text-dark" style="color: #06038D;">{{ item.web_item_name }}</h6>
+              
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+       
+      </div>
+
+      <!-- container -->
+      <div class="container" style="background-color: #0A077A;"><div class="card mb-3 my-5" style="">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img
+              src="https://ucarecdn.com/eb7c9392-18d9-4e85-87fe-acc5bc1b595a/-/preview/500x500/-/quality/smart/-/format/auto/"
+              alt="Trendy Pants and Shoes"
+              class="img-fluid rounded-start"
+            />
+          </div>
+          <div class="col-md-8  d-flex justify-content-center">
+            <div class="card-body">
+              <h2 class="card-title" style="color: #0A077A;">Explore Cutting-Edge Automation Solutions</h2>
+              <p class="card-text lead  fs-2">
+                At INTECH24, we're committed to delivering top-of-the-line industrial automation solutions to 
+                meet your specific needs. 
+              </p>
+              
+            </div>
+          </div>
+        </div>
+      </div></div>
+      
+     
+       
+    </div>
+   
+  </section>
+  <!-- Products -->
+  
+  <!-- Feature -->
+  <section class="mt-5" style="background-color: #f5f5f5;">
+    <div class="container text-dark pt-3">
+      <header class="pt-4 pb-3">
+        <h3 class="display-5 fw-bold mb-3 text-dark" style="color: #0A077A;">Why choose us</h3>
+      </header>
+  
+      <div class="row mb-4">
+        <div class="col-lg-4 col-md-6">
+          <figure class="d-flex align-items-center mb-4">
+            <span class="rounded-circle bg-white p-3 d-flex me-2 mb-2">
+              <i class="fas fa-camera-retro fa-2x fa-fw text-primary floating"></i>
+            </span>
+            <figcaption class="info">
+              <h6 class="title fs-4 fw-bold mb-3 text-dark">Reasonable prices</h6>
+              <p>Our reasonable prices ensure you get the best value for your investment</p>
+            </figcaption>
+          </figure>
+          <!-- itemside // -->
+        </div>
+        <!-- col // -->
+        <div class="col-lg-4 col-md-6">
+          <figure class="d-flex align-items-center mb-4">
+            <span class="rounded-circle bg-white p-3 d-flex me-2 mb-2">
+              <i class="fas fa-star fa-2x fa-fw text-primary floating"></i>
+            </span>
+            <figcaption class="info">
+              <h6 class="title fs-4 fw-bold mb-3 text-dark">Best quality</h6>
+              <p>We are committed to delivering the highest quality products and services.</p>
+            </figcaption>
+          </figure>
+          <!-- itemside // -->
+        </div>
+        <!-- col // -->
+        <div class="col-lg-4 col-md-6">
+          <figure class="d-flex align-items-center mb-4">
+            <span class="rounded-circle bg-white p-3 d-flex me-2 mb-2">
+              <i class="fas fa-plane fa-2x fa-fw text-primary floating"></i>
+            </span>
+            <figcaption class="info">
+              <h6 class="title fs-4 fw-bold mb-3 text-dark">Worldwide shipping</h6>
+              <p>We offer worldwide shipping to serve customers wherever they are.</p>
+            </figcaption>
+          </figure>
+          <!-- itemside // -->
+        </div>
+        <!-- col // -->
+        <div class="col-lg-4 col-md-6">
+          <figure class="d-flex align-items-center mb-4">
+            <span class="rounded-circle bg-white p-3 d-flex me-2 mb-2">
+              <i class="fas fa-users fa-2x fa-fw text-primary floating"></i>
+            </span>
+            <figcaption class="info">
+              <h6 class="title fs-4 fw-bold mb-3 text-dark">Customer satisfaction</h6>
+              <p>Your satisfaction is our top priority. We're dedicated to making you happy.</p>
+            </figcaption>
+          </figure>
+          <!-- itemside // -->
+        </div>
+        <!-- col // -->
+        <div class="col-lg-4 col-md-6">
+          <figure class="d-flex align-items-center mb-4">
+            <span class="rounded-circle bg-white p-3 d-flex me-2 mb-2">
+              <i class="fas fa-thumbs-up fa-2x fa-fw text-primary floating"></i>
+            </span>
+            <figcaption class="info">
+              <h6 class="title fs-4 fw-bold mb-3 text-dark">Happy customers</h6>
+              <p>Join our community of satisfied customers who trust us.</p>
+            </figcaption>
+          </figure>
+          <!-- itemside // -->
+        </div>
+        <!-- col // -->
+        <div class="col-lg-4 col-md-6">
+          <figure class="d-flex align-items-center mb-4">
+            <span class="rounded-circle bg-white p-3 d-flex me-2 mb-2">
+              <i class="fas fa-box fa-2x fa-fw text-primary floating"></i>
+            </span>
+            <figcaption class="info">
+              <h6 class="title fs-4 fw-bold mb-3 text-dark">Wide Selection</h6>
+              <p>Explore our vast range of over a thousand items to meet your diverse needs.</p>
+            </figcaption>
+          </figure>
+          <!-- itemside // -->
+        </div>
+        <!-- col // -->
+      </div>
+    </div>
+    <!-- container end.// -->
+  </section>
+  <!-- Feature -->
+
+  <section>
+    <div class="container my-5">
+      <header class="mb-4">
+        <h3>New products</h3>
+      </header>
+  
+      <div class="row">
+        {% set items = frappe.get_all('Website Item',  fields=['item_code', 'website_image', 'web_item_name', 'route']) %}
+        {% for item in items %}
+        <div class="col-lg-3 col-md-6 col-sm-6 ">
+          <div class="card my-2 shadow-0">
+           
+              <div class="mask" style="height: 50px;">
+                <div class="d-flex justify-content-start align-items-start h-100 m-2">
+                  <h6><span class="badge bg-danger pt-1">New</span></h6>
+                </div>
+              </div>
+              <div class="bg-image hover-overlay hover-zoom hover-shadow border border-primary rounded">
+              <img src="{{item.website_image }}" class="card-img-top rounded-2 " style="aspect-ratio: 1 / 1"/>
+            </div>
+            </a>
+            <div class="card-body p-0 pt-3">
+              <a href="" class="btn btn-light border px-2 pt-2 float-end icon-hover"><i class="fas fa-heart fa-lg px-1 text-secondary"></i></a>
+              <h5 class="card-title">{{ item.web_item_name }}</h5>
+              
+               
+            </div>
+          </div>
+        </div>
+
+        {% endfor %}
+        </div>  
+    </div>
+  </section>
+  
+  <!-- Blog -->
+  <section class="mt-5 mb-4">
+    <div class="container text-dark">
+      <header class="mb-4">
+        <h3>Blog posts</h3>
+      </header>
+  
+      <div class="row">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+          <article>
+            <a href="#" class="img-fluid">
+              <img class="rounded w-100" src="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/posts/1.webp" style="object-fit: cover;" height="160" />
+            </a>
+            <div class="mt-2 text-muted small d-block mb-1">
+              <span>
+                <i class="fa fa-calendar-alt fa-sm"></i>
+                23.12.2022
+              </span>
+              <a href="#"><h6 class="text-dark">How to promote brands</h6></a>
+              <p>When you enter into any new area of science, you almost reach</p>
+            </div>
+          </article>
+        </div>
+        <!-- col.// -->
+        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+          <article>
+            <a href="#" class="img-fluid">
+              <img class="rounded w-100" src="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/posts/2.webp" style="object-fit: cover;" height="160" />
+            </a>
+            <div class="mt-2 text-muted small d-block mb-1">
+              <span>
+                <i class="fa fa-calendar-alt fa-sm"></i>
+                13.12.2022
+              </span>
+              <a href="#"><h6 class="text-dark">How we handle shipping</h6></a>
+              <p>When you enter into any new area of science, you almost reach</p>
+            </div>
+          </article>
+        </div>
+        <!-- col.// -->
+        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+          <article>
+            <a href="#" class="img-fluid">
+              <img class="rounded w-100" src="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/posts/3.webp" style="object-fit: cover;" height="160" />
+            </a>
+            <div class="mt-2 text-muted small d-block mb-1">
+              <span>
+                <i class="fa fa-calendar-alt fa-sm"></i>
+                25.11.2022
+              </span>
+              <a href="#"><h6 class="text-dark">How to promote brands</h6></a>
+              <p>When you enter into any new area of science, you almost reach</p>
+            </div>
+          </article>
+        </div>
+        <!-- col.// -->
+        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+          <article>
+            <a href="#" class="img-fluid">
+              <img class="rounded w-100" src="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/posts/4.webp" style="object-fit: cover;" height="160" />
+            </a>
+            <div class="mt-2 text-muted small d-block mb-1">
+              <span>
+                <i class="fa fa-calendar-alt fa-sm"></i>
+                03.09.2022
+              </span>
+              <a href="#"><h6 class="text-dark">Success story of sellers</h6></a>
+              <p>When you enter into any new area of science, you almost reach</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Blog -->
+  
+  <!-- Footer -->
+  {% include "templates/includes/footer/footer.html" %}
+  <!-- Footer -->
+    
+    
+    <script type="text/javascript" src="assets/intech/js/mdb.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.js"
+    ></script>
+    <!-- Custom scripts -->
+    <script type="text/javascript"></script>
+    <script src="https://cdn.popupsmart.com/bundle.js" data-id="551239" async defer></script>
+    </body>
+
+    </html>
